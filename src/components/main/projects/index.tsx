@@ -26,7 +26,7 @@ export default function Projects() {
 					<li>Снижение технического долга</li>
 				</ul>
 			`,
-				image: '/images/compas-pro.webp',
+				image: './images/compas-pro.webp',
 			},
 			{
 				title: 'Сити Боулинг',
@@ -41,7 +41,7 @@ export default function Projects() {
 					<li>Административная панель с аналитикой и управлением бронированиями</li>
 				</ul>
 			`,
-				image: '/images/bowling.webp',
+				image: './images/bowling.webp',
 			},
 			{
 				title: 'Компас Гуру',
@@ -54,7 +54,7 @@ export default function Projects() {
 					<li>Оптимизация структуры проекта</li>
 				</ul>
 			`,
-				image: '/images/compas-goo.webp',
+				image: './images/compas-goo.webp',
 			},
 			{
 				title: 'Адвокаты СССР',
@@ -67,7 +67,7 @@ export default function Projects() {
 					<li>Улучшение структуры и читаемости проекта</li>
 				</ul>
 			`,
-				image: '/images/lawyer.webp',
+				image: './images/lawyer.webp',
 			},
 			{
 				title: 'Уха',
@@ -81,7 +81,7 @@ export default function Projects() {
 					<li>Lighthouse score: 95 (desktop)</li>
 				</ul>
 			`,
-				image: '/images/uha.webp',
+				image: './images/uha.webp',
 			},
 			{
 				title: 'СРО',
@@ -95,7 +95,7 @@ export default function Projects() {
 					<li>Повышение качества и поддерживаемости системы</li>
 				</ul>
 			`,
-				image: '/images/sro.webp',
+				image: './images/sro.webp',
 			},
 			{
 				title: '3D Parallax',
@@ -108,7 +108,7 @@ export default function Projects() {
 					<li>Интерактивная анимация на скролле</li>
 				</ul>
 			`,
-				image: 'https://орфографика.рф/800/600/https/s3.amazonaws.com/pbblogassets/uploads/2017/06/10130141/Parallax.jpg',
+				image: './images/parallax.png',
 			},
 			{
 				title: 'Hogwarts',
@@ -162,7 +162,7 @@ export default function Projects() {
 
 			const fullWidth = boxesCount * boxWidth + gap * (boxesCount - 1);
 
-			const scrollDistance = fullWidth - window.innerWidth;
+			const scrollDistance = fullWidth - window.innerWidth + 100;
 
 			gsap.to(wrp.current, {
 				x: -scrollDistance,
