@@ -1,0 +1,12 @@
+.footer-wrp {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	.contacts {
+		display: flex;
+		gap: 20px;
+	}
+	@media (max-width: 375px) {
+		font-size: 14px;
+	}
+}

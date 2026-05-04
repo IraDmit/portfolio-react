@@ -1,0 +1,59 @@
+/* @import 'normalize.scss'; */
+@import './fonts.scss';
+
+ul {
+	list-style: none;
+	margin: 0;
+}
+a {
+	text-decoration: none;
+	color: unset;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.container {
+	padding: 50px;
+	@media (max-width: 768px) {
+		padding: 30px;
+	}
+	@media (max-width: 500px) {
+		padding: 15px;
+	}
+}
+
+body {
+	background-color: #0c0c0c;
+	color: #e9e9e9;
+	font-family: 'Fira Mono';
+	overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+	width: 6px;
+	background-color: #0c0c0c;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: #d72323;
+	background: -webkit-linear-gradient(
+		0deg,
+		rgb(215, 35, 35) 49%,
+		rgb(103, 0, 0)
+	);
+	background: -moz-linear-gradient(
+		0deg,
+		rgb(215, 35, 35) 49%,
+		rgb(103, 0, 0)
+	);
+	background: linear-gradient(0deg, rgb(215, 35, 35) 49%, rgb(103, 0, 0));
+}
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+	background-color: #0c0c0c;
+}
