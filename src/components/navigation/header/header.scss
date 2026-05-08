@@ -51,20 +51,18 @@ header {
 					}
 				}
 			}
+			@media (max-width: 768px) {
+				display: none;
+			}
 		}
+
 		@media (max-width: 525px) {
 			.logo {
 				font-size: 16px;
 			}
-			.header-menu {
-				font-size: 14px;
-			}
 		}
 		@media (max-width: 425px) {
 			.logo {
-				font-size: 14px;
-			}
-			.header-menu {
 				font-size: 14px;
 			}
 		}
@@ -76,10 +74,13 @@ header {
 				font-size: 14px;
 				margin-right: 10px;
 			}
-			.header-menu {
-				gap: 13px;
-				font-size: 13.5px;
-			}
 		}
+	}
+}
+
+.header-burger {
+	display: none;
+	@media (max-width: 768px) {
+		display: block;
 	}
 }

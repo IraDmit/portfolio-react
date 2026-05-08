@@ -1,17 +1,30 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useLayoutEffect, useMemo, useRef } from 'react';
+import { useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import './projects.scss';
+import Modal from '../../common/modal';
 
 gsap.registerPlugin(ScrollTrigger);
+
+interface Project {
+	title: string;
+	link: string;
+	text: TrustedHTML;
+	image: string;
+}
 
 export default function Projects() {
 	const { t } = useTranslation();
 
 	const main = useRef<HTMLElement | null>(null);
 	const wrp = useRef<HTMLDivElement | null>(null);
+
+	const [isOpen, setIsOpen] = useState(false);
+	const [selectedProject, setSelectedProjects] = useState<Project | null>(
+		null,
+	);
 
 	const framesList = useMemo(
 		() => [
@@ -145,17 +158,22 @@ export default function Projects() {
 		let boxWidth = 800;
 
 		if (window.innerWidth < 880) boxWidth = 500;
-		if (window.innerWidth < 550) boxWidth = 350;
-		if (window.innerWidth < 650) gap = 60;
 
 		return { gap, boxWidth };
+	};
+
+	const openModal = (project: Project) => {
+		setSelectedProjects(project);
+		setIsOpen(true);
+		console.log(project);
+		console.log(isOpen);
 	};
 
 	const { gap, boxWidth } = getSizes();
 
 	useLayoutEffect(() => {
+		if (window.innerWidth < 768) return;
 		if (!main.current || !wrp.current) return;
-
 		const ctx = gsap.context(() => {
 			const boxesCount =
 				wrp.current?.querySelectorAll('.box').length || 0;
@@ -198,6 +216,11 @@ export default function Projects() {
 								} as React.CSSProperties
 							}
 							key={'frame' + idx}
+							onClick={() => {
+								if (window.innerWidth < 768) {
+									openModal(frame);
+								}
+							}}
 						>
 							<figure className="effect-text-four">
 								<img src={frame.image} alt={frame.title} />
@@ -215,6 +238,14 @@ export default function Projects() {
 							</figure>
 						</div>
 					))}
+					{isOpen && selectedProject && (
+						<Modal
+							onClose={() => setIsOpen(false)}
+							title={selectedProject.title}
+							text={selectedProject.text}
+							link={selectedProject.link}
+						/>
+					)}
 				</div>
 			</section>
 		</>

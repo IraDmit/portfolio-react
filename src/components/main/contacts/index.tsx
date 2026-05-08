@@ -5,7 +5,7 @@ export default function Contacts() {
 		<>
 			<div className="main-section" id="contact">
 				<div className="big-txt">Irina Dmitrieva</div>
-				<div className="glitch">alisagoodpirate@gmail.com</div>
+				<div className="glitch">iritrieva@gmail.com</div>
 			</div>
 		</>
 	);
